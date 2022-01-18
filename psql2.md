@@ -57,14 +57,15 @@ select * from vocabulary;
 ### Multiple insert
 
 ```sql
-test=# insert into vocabulary (name) values ('IT'), ('Silicon Valley season 1');
+insert into vocabulary (name) values ('IT'), ('Silicon Valley season 1');
 INSERT 0 2
 ```
 
 Проверим:
 
 ```sql
-test=# select * from vocabulary;
+select * from vocabulary;
+
  id |          name           | info
 ----+-------------------------+------
   1 | verbs                   |
@@ -82,7 +83,8 @@ test=# select * from vocabulary;
 insert into vocabulary select * from vocabulary;
 INSERT 0 3
 
-test=# select * from vocabulary;
+select * from vocabulary;
+
  id |          name           | info
 ----+-------------------------+------
   1 | verbs                   |
@@ -102,12 +104,12 @@ test=# select * from vocabulary;
 Минимальный возможный запрос выглядит так:
 
 ```sql
-SELECT 1;
-+---+
-| 1 |
-+---+
-| 1 |
-+---+
+select 1;
+ ?column? 
+----------
+        1
+(1 row)
+
 ```
 Единственным обязательным ключевым словом в запросе **`select`** является слово `select` - выбрать. 
 
@@ -312,7 +314,7 @@ and id < 6 group by vocabulary_id having count(*) > 1;
 ### ORDER BY
 
 ```sql
-test=# select * from word order by vocabulary_id;
+select * from word order by vocabulary_id;
  id |   word   | vocabulary_id
 ----+----------+---------------
   1 | have     |             1
@@ -323,7 +325,7 @@ test=# select * from word order by vocabulary_id;
   4 | have     |             7
 (6 rows)
 
-test=# select * from word order by 3;
+select * from word order by 3;
  id |   word   | vocabulary_id
 ----+----------+---------------
   1 | have     |             1
@@ -334,7 +336,7 @@ test=# select * from word order by 3;
   4 | have     |             7
 (6 rows)
 
-test=# select * from word order by 3, 2;
+select * from word order by 3, 2;
  id |   word   | vocabulary_id
 ----+----------+---------------
   1 | have     |             1
@@ -349,7 +351,7 @@ test=# select * from word order by 3, 2;
 ### LIMIT и OFFSET
 
 ```sql
-test=# select * from word order by 3, 2 limit 3;
+select * from word order by 3, 2 limit 3;
  id |  word  | vocabulary_id
 ----+--------+---------------
   1 | have   |             1
@@ -357,7 +359,7 @@ test=# select * from word order by 3, 2 limit 3;
   5 | TCP/IP |             2
 (3 rows)
 
-test=# select * from word order by 3, 2 limit 3 offset 3;
+select * from word order by 3, 2 limit 3 offset 3;
  id |   word   | vocabulary_id
 ----+----------+---------------
   6 | Function |             3

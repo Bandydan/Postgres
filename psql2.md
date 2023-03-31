@@ -156,12 +156,11 @@ FROM
     ...
 WHERE
     <cond>
-    
+GROUP BY
+    <field 1>    
 ORDER BY
     <field1> ASC
     <field3> DESC
-GROUP BY
-    <field 1>
 HAVING
     <cond with aggr function>
 LIMIT

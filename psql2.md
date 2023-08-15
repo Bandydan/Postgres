@@ -156,16 +156,15 @@ FROM
     ...
 WHERE
     <cond>
-    
-ORDER BY
-    <field1> ASC
-    <field3> DESC
 GROUP BY
     <field 1>
 HAVING
     <cond with aggr function>
-LIMIT
-    N,M
+ORDER BY
+    <field1> ASC
+    <field3> DESC
+LIMIT N
+OFFSET M
 ```
 
 
